@@ -2,16 +2,14 @@
 
 ## Примеры, облегчающие жизнь
 
-
 ### Запретить прокрутку при всплывающем окне
 ```js
 	//компенсация за скроллбар
-	const head = document.head;
 	const scrollWidth = window.innerWidth - document.documentElement.clientWidth;
 	const style = document.createElement('style');
 	style.type = 'text/css';
 	style.appendChild(document.createTextNode(`.compensate-for-scrollbar {margin-right: ${scrollWidthpx}px;}`));
-	head.appendChild(style);
+	document.head.appendChild(style);
 
 
 	//modal show
@@ -28,7 +26,7 @@
 ```js
 	//компенсация за скроллбар
 	const scrollWidth = window.innerWidth - document.documentElement.clientWidth;
-	$('<style type="text/css">').html('.compensate-for-scrollbar { margin-right: ' + scrollWidth + 'px; }').appendTo('head');
+	$('<style type="text/css">').html(`.compensate-for-scrollbar {margin-right: ${scrollWidth}px;}`).appendTo('head');
 
 	//modal show
 	$('body').css('overflow', 'hidden').addClass('compensate-for-scrollbar');
